@@ -1,0 +1,58 @@
+<!--index.wxml-->
+<view class="turntable-area">
+
+      <!-- 音乐图标布局 -->
+      <image src="../../img/music.png" alt="播放" class="play-music" 
+      bindtap="bg_play" wx:if="{{!isPlay}}"></image>
+      <image src="../../img/jy.png" alt="静音" class="jy-music"
+       bindtap="bg_jy" wx:if="{{isPlay}}"></image>
+         <view style="text-align:center;">今日还有{{num}}次抽奖机会</view>
+      <!-- 中间的列表布局 -->
+      <view class="prize">
+      <view class="tan" wx:if="{{isDisabled}}"></view>
+        <!-- 一行是3个数据，p-item代表一行，一共是3行 -->
+        <view class="p-item">
+        <!-- 这是显示的active的样式 -->
+          <view  class="pi-item {{list[index].opa==1?'ac':''}};" wx:for="{{3}}" wx:key="index">
+          <!-- 每个小方块，里面有图片加文字 -->
+            <view class="p-info">
+              <image class="p-cover" mode="aspectFit" src="{{list[index].imgUrl}}"></image>
+              <view class="p-name">{{list[index].name}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- 一行是3个数据，p-item代表一行，一共是3行 -->
+        <view class="p-item">
+          <view class="pi-item {{list[7].opa==1?'ac':''}};">
+            <view class="p-info">
+              <image class="p-cover" mode="aspectFit" src="{{list[7].imgUrl}}"></image>
+              <view class="p-name">{{list[7].name}}</view>
+            </view>
+          </view>
+          <view class="btn {{isDisabled?'btn-lottery-disabled':'btn-lottery'}}" bindtap="startLucks">
+            <view class="p-info">
+              <view class="p-name">立即抽奖</view>
+            </view>
+          </view>
+          <view class="pi-item {{list[3].opa==1?'ac':''}};">
+            <view class="p-info">
+              <image class="p-cover" mode="aspectFit" src="{{list[3].imgUrl}}"></image>
+              <view class="p-name">{{list[3].name}}</view>
+            </view>
+          </view>
+        </view>
+        <!-- 一行是3个数据，p-item代表一行，一共是3行 -->
+        <view class="p-item">
+          <view class="pi-item {{list[index===0?6:index===1?5:4].opa==1?'ac':''}};"
+           wx:for="{{3}}" wx:key="index">
+            <view class="p-info">
+              <image class="p-cover" mode="aspectFit" src="{{list[index===0?6:index===1?5:4].imgUrl}}"></image>
+              <view class="p-name">{{list[index===0?6:index===1?5:4].name}}</view>
+            </view>
+          </view>
+        </view>
+      </view>
+      
+    <!-- </view> -->
+  </view>
+
